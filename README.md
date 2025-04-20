@@ -3,7 +3,9 @@ A java program which helps the patients from remote areas  to contact with the d
 
 my project files contains all the necessary files required to send email to the doctor in case of emergency
 
------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+download the my project folder then go to src folder then run the following commands
 
 TO COMPILE ALL FILES RUN THE COMMAND
 javac -cp ".;..\lib\*" *.java
