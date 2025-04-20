@@ -1,2 +1,4 @@
 # REMOTE-HEALTH-MANAGENT-SYSTEM
 A java program which helps the patients from remote areas  to contact with the doctor through video calss e.t.c.
+
+my project files contains all the necessary files required to send email to the doctor in case of emergency
