@@ -1,0 +1,94 @@
+package com.example.rpms.model;
+
+import java.util.ArrayList;
+
+public class Administrator extends User {
+    // lists of patients and doctors in the system
+    // they are statics because we want to have a single list of doctors and patients for the whole system
+    // so that we can access them from anywhere in the system
+    private static ArrayList<Doctor> doctors = new ArrayList<>();
+    private static ArrayList<Patient> patients = new ArrayList<>();
+    // list of system logs
+    private static ArrayList<String> systemLogs;
+
+    // constructor
+    public Administrator(String id, String name, String email) {
+        super(id, name, email);
+    }
+
+    // getters
+    public static ArrayList<Doctor> getDoctors(int a) { return doctors; }
+    
+    public static void getDoctors() {
+        System.out.println("--- List of Doctors ---");
+        for (Doctor doctor : doctors) {
+            System.out.println("ID: " + doctor.getId() + ", Name: " + doctor.getName() + ", Email: " + doctor.getEmail());
+        }
+    }
+    public static ArrayList<Patient> getPatients() { return patients; }
+    public static void getPatients(int a) {
+        System.out.println("--- List of Patients ---");
+        for (Patient patient : patients) {
+            System.out.println("ID: " + patient.getId() + ", Name: " + patient.getName() + ", Email: " + patient.getEmail());
+        }
+    }
+    public static ArrayList<String> getSystemLogs() { return systemLogs; }
+
+    // adding new log
+    public void addSystemLog(String log) {
+        systemLogs.add(log);
+    }
+    // viewing all logs
+    public void viewSystemLogs() {
+        System.out.println("System Logs:");
+        for (String log : systemLogs) {
+            System.out.println(log);
+        }
+    }
+    // registering new dovctor
+    public static void registerDoctor(Doctor doctor) {
+        doctors.add(doctor);
+        System.out.println("Doctor " + doctor.getName() + " registered.");
+    }
+
+    // registering new patient
+    public static void registerPatient(Patient patient) {
+        patients.add(patient);
+        System.out.println("Patient " + patient.getName() + " registered.");
+    }
+
+    //remoce a doctor from the system
+    public void removeDoctor(Doctor doctor) {
+        if (doctors.remove(doctor)) {
+            System.out.println("Doctor " + doctor.getName() + " removed from the system.");
+        } else {
+            System.out.println("Doctor not found.");
+        }
+    }
+    //remove a patient from the system
+    public void removePatient(Patient patient) {
+        if (patients.remove(patient)) {
+            System.out.println("Patient " + patient.getName() + " removed from the system.");
+        } else {
+            System.out.println("Patient not found.");
+        }
+    }
+
+    public static Doctor getDoctorById(String id) {
+        for (Doctor doctor : doctors) {
+            if (doctor.getId().equals(id)) {
+                return doctor;
+            }
+        }
+        return null; // Return null if no doctor is found with the given ID
+    }
+
+    public static Patient getPatientById(String id) {
+        for (Patient patient : patients) {
+            if (patient.getId().equals(id)) {
+                return patient;
+            }
+        }
+        return null; // Return null if no patient is found with the given ID
+    }
+}
